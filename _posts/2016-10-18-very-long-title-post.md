@@ -1,5 +1,5 @@
 ---
-title: For Example of very Long Title Would Be Typography Elements in One
+title: My second post
 updated: 2020-04-07 10:37
 categories: myposts
 ---
