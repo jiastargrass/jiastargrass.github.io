@@ -1,7 +1,8 @@
 ---
 title: Lorem Ipsum
-updated: 2015-09-06 15:56
+updated: 2020-04-06 15:56
 permalink: /post.title
+categories: myposts
 ---
 
 ### The standard Lorem Ipsum passage, used since the 1500s
