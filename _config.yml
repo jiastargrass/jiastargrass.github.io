@@ -2,7 +2,7 @@
 title:              "Xiaoran Jia"
 description:        "PhD Candidate in Accouunting"
 author_name:        "Xiaoran Jia" # change this to your name
-logo_url:           https://github.com/jiastargrass/stargrasspics/blob/master/img/profile_pic.jpg?raw=true # Get it from GitHub API: https://api.github.com/users/<username>
+logo_url:           https://github.com/jiastargrass/stargrasspics/blob/master/img/profile_pic.jpg # Get it from GitHub API: https://api.github.com/users/<username>
 
 # Site Settings
 url:                https://jiastargrass.github.io # main url
