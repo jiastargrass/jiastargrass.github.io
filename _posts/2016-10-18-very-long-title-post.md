@@ -2,6 +2,7 @@
 title: My second post
 updated: 2020-04-07 10:37
 categories: myposts
+permalink: /:categories/:year:month:day/:title.html
 ---
 
 **NOTE:** This markdown cheatsheet is a typography demo for this theme. Check out this post to learn more about this markdown usage when you want to get started with this theme. Enjoy!
