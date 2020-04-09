@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		{% include head.html %}
+	</head>
+
+<center>
+	<span class="nowrap" style = "font-family:georgia;font-size:16px;font-style:b;"><a href="{{site.url}}/index.html">Mainpage</a></span>
+	<span class="nowrap">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+	<span class="nowrap" style = "font-family:georgia;font-size:16px;font-style:b;"><a href="{{site.url}}/mycv.html">My CV</a></span>
+	<span class="nowrap">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+	<span class="nowrap" style = "font-family:georgia;font-size:16px;font-style:b;"><a href="{{site.url}}/myposts.html">My Posts</a></span>
+	<span class="nowrap">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+	<span class="nowrap" style = "font-family:georgia;font-size:16px;font-style:b;"><a href="{{site.url}}/contact.html">Contact Me</a></span>
+	<span class="nowrap">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+	<span class="nowrap" style = "font-family:georgia;font-size:16px;font-style:b;"><a href="{{site.url}}/Resources.html">Resources</a></span>
+</center>
+
+<br><br>
+	<body>
+
+		<div id="content">
+			{{ content }}
+		</div>
+
+		{% include footer.html %}
+
+	</body>
+
+</html>
