@@ -5,3 +5,4 @@ categories: sas
 author: "Jason"
 permalink: /:categories/:year:month:day/:title.html
 ---
+When you name a process **flow Autoexec**, SAS Enterprise Guide prompts you to run the **Autoexec** process flow with the 2 programs when you open the project. This makes it easy to recreate your data each time you start practicing in the course.
