@@ -53,7 +53,56 @@ run;
 
 - **DATA** *output-table***;**      **MERGE** *input-table1*(**IN**=*var1*) *input-table2*(**IN**=*var2*) ...**;**      **BY** *BY-column(s)***;** **RUN;**
 
+```sas
+data class2;
+    merge pg2.class_update(in=inUpdate) 
+          pg2.class_teachers(in=inTeachers);
+    by name;
+    if inUpdate=1 and inTeachers=1;
+run;
+```
+
+
+
 - By default, both matches and nonmatches are written to the output table in a DATA step merge.
 - The IN= data set option follows a table in the MERGE statement and names a variable that will be added to the PDV. The IN= variables are included in the PDV during execution, but they are not written to the output table. Each IN= variable relates to the table that the option follows.
 - During execution, the IN= variable is assigned a value of 0 or 1. 0 means that the corresponding table did ***not\*** include the BY column value for that row, and 1 means that it did include the BY-column value.
 - The subsetting IF or IF-THEN logic can be used to subset rows based on matching or nonmatching rows.
+
+
+
+```sas
+/*Steps a and b*/
+proc sort data=pg2.np_CodeLookup out=sortnames(keep=ParkName ParkCode);
+	by ParkName;
+run;
+
+proc sort data=pg2.np_final out=sortfinal;
+	by ParkName;
+run;
+
+data highuse(keep=ParkCode ParkName);
+	merge sortfinal sortnames;
+	by ParkName;
+	*Add a subsetting IF statement;
+	if DayVisits >= 5000000;
+run;
+
+/*Step c*/
+proc sort data=pg2.np_species
+	  	  out=birds(keep=ParkCode Species_ID Scientific_Name Common_Names);
+	by ParkCode Species_ID;
+	where Category='Bird' and Abundance='Common';
+run;
+
+proc sort data=highuse;
+	by parkcode;
+run;
+
+data birds_largepark;
+	merge highuse(in=inhighuse) birds;
+	by parkcode;
+	if inhighuse=1;
+run;
+```
+
