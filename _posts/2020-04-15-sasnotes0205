@@ -1,6 +1,6 @@
 ---
 layout: posts_nologo
-title: "SAS2-4 Creating Custom Formats"
+title: "SAS2-5 Combining Tables"
 updated: 2020-04-14 10:30
 categories: sas
 author: "Jason"
@@ -11,7 +11,24 @@ permalink: /:categories/:year:month:day/:title.html
 
 ### Concatenating Tables
 
-- **DATA** *output-table***;**     **SET** *input-table1***(rename=(***current-colname*=*new-colname***))**          *input-table2* **...;** **RUN;**
+- **DATA** *output-table***;**     **SET** *input-table1***(rename=(** *current-colname*=*new-colname***))**          *input-table2* **...;** **RUN;**
+
+```sas
+*Example 1;
+data class_current;
+	length name $ 9;
+    set sashelp.class pg2.class_new2(rename=(student=name));
+run;
+
+*Example 2;
+data work.np_combine_new;
+	set pg2.np_2014(rename=(type=parktype park=parkcode)) pg2.np_2015 pg2.np_2016;
+	CampTotal = sum(of Camping:);
+	where month in (6, 7, 8) and ParkType = "National Park";
+	format camptotal comma15.;
+    drop Camping:;
+run;
+```
 
 - Multiple tables listed in the SET statement are concatenated.
 - SAS first reads all the rows from the first table listed in the SET statement and writes them to the new table. Then it reads and writes the rows from the second table, and so on.
@@ -24,7 +41,7 @@ permalink: /:categories/:year:month:day/:title.html
 
 - *If data needs to be sorted prior to the merge:*
 
-- **PROC SORT DATA=***input-table* **OUT=***output-table***;**      **BY** *BY-column***;** **RUN;**
+- **PROC SORT DATA=** *input-table* **OUT=** *output-table***;**      **BY** *BY-column***;** **RUN;**
 
 - **DATA** *output-table***;**      **MERGE** *input-table1 input-table2 ...***;**      **BY** *BY-column(s)***;** **RUN;**
 
