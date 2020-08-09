@@ -1,5 +1,5 @@
 ---
 layout: cv
-title: "Xiaoran (Jason) Jia's CV"
+title: " CV"
 permalink: /mycv
 ---
